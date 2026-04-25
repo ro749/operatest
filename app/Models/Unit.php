@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Ro749\FullListingTemplate\models\Unit as Model;
+use Ro749\FullListingTemplate\Models\Unit as Model;
 use Ro749\SharedUtils\Models\Modifier;
 use Ro749\SharedUtils\Tables\Column;
 use Ro749\SharedUtils\Models\LogicModifiers\Options;

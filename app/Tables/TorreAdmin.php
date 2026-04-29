@@ -2,7 +2,7 @@
 
 namespace App\Tables;
 use App\Models\Unit;
-use Ro749\FullListingTemplate\tables\TorreAdmin as BaseTable;
+use Ro749\FullListingTemplate\Tables\TorreAdmin as BaseTable;
 
 class TorreAdmin extends BaseTable
 {

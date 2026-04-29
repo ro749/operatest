@@ -2,7 +2,7 @@
 
 namespace App\Tables;
 
-use Ro749\FullListingTemplate\tables\Users as UsersBase;
+use Ro749\FullListingTemplate\Tables\Users as UsersBase;
 use Ro749\SharedUtils\Tables\Column;
 use Ro749\SharedUtils\Models\LogicModifiers\Options;
 use Ro749\FullListingTemplate\Enums\Options as OptionsEnum;

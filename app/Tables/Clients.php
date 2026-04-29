@@ -2,7 +2,7 @@
 
 namespace App\Tables;
 
-use Ro749\FullListingTemplate\tables\Clients as BaseTable;
+use Ro749\FullListingTemplate\Tables\Clients as BaseTable;
 use Ro749\SharedUtils\Getters\BaseGetter;
 use Ro749\SharedUtils\Tables\Column;
 use Ro749\SharedUtils\Models\LogicModifiers\Options;

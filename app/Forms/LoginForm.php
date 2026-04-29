@@ -3,7 +3,7 @@
 namespace App\Forms;
 
 use Illuminate\Support\Facades\Auth;
-use Ro749\FullListingTemplate\forms\LoginForm as LoginFormBase;
+use Ro749\FullListingTemplate\Forms\LoginForm as LoginFormBase;
 use Ro749\SharedUtils\Forms\Field;
 use Ro749\SharedUtils\Forms\InputType;
 use Illuminate\Http\Request;

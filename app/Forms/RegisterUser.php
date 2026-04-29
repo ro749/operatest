@@ -2,7 +2,7 @@
 
 namespace App\Forms;
 
-use Ro749\FullListingTemplate\forms\RegisterUser as RegisterUserBase;
+use Ro749\FullListingTemplate\Forms\RegisterUser as RegisterUserBase;
 use Illuminate\Http\Request;
 use Ro749\SharedUtils\Forms\Field;
 use Ro749\SharedUtils\Forms\InputType;

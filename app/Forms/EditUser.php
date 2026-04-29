@@ -2,7 +2,7 @@
 
 namespace App\Forms;
 
-use Ro749\FullListingTemplate\forms\EditUser as EditUserBase;
+use Ro749\FullListingTemplate\Forms\EditUser as EditUserBase;
 use Ro749\SharedUtils\Forms\Field;
 use Ro749\SharedUtils\Forms\InputType;
 use Ro749\SharedUtils\Forms\Selector;

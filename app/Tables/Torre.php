@@ -2,7 +2,7 @@
 
 namespace App\Tables;
 
-use Ro749\FullListingTemplate\tables\Torre as BaseTable;
+use Ro749\FullListingTemplate\Tables\Torre as BaseTable;
 use App\Models\Unit;
 
 class Torre extends BaseTable

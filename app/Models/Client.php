@@ -2,7 +2,7 @@
 
 namespace App\Models;
 
-use Ro749\FullListingTemplate\models\Client as Model;
+use Ro749\FullListingTemplate\Models\Client as Model;
 
 class Client extends Model
 {

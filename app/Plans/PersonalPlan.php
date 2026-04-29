@@ -28,6 +28,7 @@ class PersonalPlan extends BasePersonalPlan{
         array $lines_for_fill = ['enganche', 'plazo'],
     ){
         parent::__construct($form,$id, $title, $discount, $top_lines, $lines, $bottom_lines, $price_tag, $discount_tag, $total_tag, $ppm_tag, $total_on_top, $ppm, $show_base_price);
+        array_shift($this->top_lines);
         array_shift($this->lines);
     }
 }

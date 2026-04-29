@@ -25,6 +25,7 @@ return [
         'UnitData' => App\Data\UnitData::class,
     ],
     'controllers' => [
+        'DispoController' => App\Controllers\DispoController::class,
     ],
     'views' => [
         'calculos-plan' => 'calculos-plan',
@@ -32,6 +33,7 @@ return [
         'footer' => 'footer',
         'header' => 'header',
         'post-data' => 'post-data',
+        'sender-buttons' => 'sender-buttons',
         'simple-login' => 'simple-login',
         'welcome' => 'welcome',
     ],

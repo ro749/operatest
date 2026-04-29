@@ -2,12 +2,19 @@
 
 return [
     'tables' => [
+        'Clients' => App\Tables\Clients::class,
         'Torre' => App\Tables\Torre::class,
         'TorreAdmin' => App\Tables\TorreAdmin::class,
+        'Users' => App\Tables\Users::class,
     ],
     'forms' => [
+        'EditUser' => App\Forms\EditUser::class,
+        'LoginForm' => App\Forms\LoginForm::class,
+        'RegisterUser' => App\Forms\RegisterUser::class,
     ],
     'models' => [
+        'Asesor' => App\Models\Asesor::class,
+        'Client' => App\Models\Client::class,
         'Plan' => App\Models\Plan::class,
         'PlanLine' => App\Models\PlanLine::class,
         'Unit' => App\Models\Unit::class,

@@ -1,5 +1,5 @@
 <div style="display: flex; flex-direction:row; justify-content: center; gap:6px; margin-bottom: 1.5%; margin-top: 1%;">
-    @if(!empty($sender->client->mail))
+    @if(!empty($sender->client->correo))
     <button id="send-email-btn" style="display: flex; flex-direction:row; align-items: center; gap:6px;"  class="btn btn-light send-btn">
         <iconify-icon icon="{{ \Ro749\SharedUtils\Enums\Icon::SEND_MAIL->value }}"></iconify-icon>
         <span id="mail-tag">Correo</span>

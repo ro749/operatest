@@ -11,6 +11,7 @@ return [
         'EditUser' => App\Forms\EditUser::class,
         'LoginForm' => App\Forms\LoginForm::class,
         'RegisterUser' => App\Forms\RegisterUser::class,
+        'SelectClient' => App\Forms\SelectClient::class,
     ],
     'models' => [
         'Asesor' => App\Models\Asesor::class,

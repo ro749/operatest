@@ -28,9 +28,11 @@ return [
         'DispoController' => App\Controllers\DispoController::class,
     ],
     'views' => [
+        'asesor-area' => 'asesor-area',
         'calculos-plan' => 'calculos-plan',
         'disponibilidad-data' => 'disponibilidad-data',
         'footer' => 'footer',
+        'header-asesor' => 'header-asesor',
         'header' => 'header',
         'post-data' => 'post-data',
         'sender-buttons' => 'sender-buttons',

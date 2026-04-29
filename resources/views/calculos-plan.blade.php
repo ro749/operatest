@@ -1,6 +1,8 @@
 @push('scripts')
 <script>
     $(document).data('no_auto_update_personalized', true);
+    $('#fill_enganche').prop('disabled', true);
+    $('#fill_plazo').prop('disabled', true);
     $(document).on('personalized_plan_changed', function (e, final_price) {
         var interes_mensual = .013;
         var mensualidades_plazo = $('#fill_months_plazo').get_number();
@@ -70,8 +72,8 @@
             var pago_final = monto_nominal * Math.pow(1 + tasa_efectiva_anualizada, plazo_anualizado);
             var enganche = final_price * per_enganche / 100;
             var pago = enganche + pago_total + pago_final;
-            $('#fill_enganche').set_value(per_enganche*pago/100);
-            $('#fill_plazo').set_value(per_plazo*pago/100);
+            $('#fill_enganche').set_money(per_enganche*pago/100);
+            $('#fill_plazo').set_money(per_plazo*pago/100);
         }
         
         

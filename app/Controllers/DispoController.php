@@ -33,7 +33,7 @@ class DispoController extends Controller
             'imp'=>$imp,
             'sender'=>$client!=null?$sender:null,
             'client'=>$client,
-            'asesor'=>$asesor->name,
+            'asesor'=>$asesor->nombre,
             'unit'=>null,
             'menu'=>true,
             'dispo_btns'=>true,

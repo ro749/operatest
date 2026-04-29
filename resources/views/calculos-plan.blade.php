@@ -78,6 +78,7 @@
         $('#per_liquidacion').set_percent(per_liquidacion);
         $('#fill_liquidacion').set_money(per_liquidacion*pago/100);
         $('#fill_mensuality_plazo').set_money(pago_manual);
+        $('#fill_total-price-personalized').set_money(pago);
     });
 
     function calculateX(w,y, z, L) {

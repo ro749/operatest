@@ -27,16 +27,16 @@ class Unit extends Model
                 modifier: Modifier::METERS,
             ),
             'exterior'=>new Column(
-                display:"exterior",
+                display:"Exterior",
                 modifier: Modifier::METERS,
             ),
             'total'=>new Column(
-                display:"Precio",
-                modifier: Modifier::MONEY,
+                display:"Total",
+                modifier: Modifier::METERS,
             ),
             'price'=>new Column(
                 display:"Precio",
-                modifier: Modifier::METERS,
+                modifier: Modifier::MONEY,
             ),
             
             'status'=>new Column(

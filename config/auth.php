@@ -66,11 +66,6 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', User::class),
         ],
-
-        'asesors' => [
-            'driver' => 'eloquent',
-            'model' => \App\Models\Asesor::class,
-        ],
     ],
 
     /*

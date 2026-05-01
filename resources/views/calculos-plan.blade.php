@@ -1,14 +1,33 @@
 @push('scripts')
 <script>
     $(document).data('no_auto_update_personalized', true);
-    $('#fill_enganche').prop('disabled', true);
     $('#fill_plazo').prop('disabled', true);
+    $('#fill_interes_mensual').set_value(1.3);
+    
+    $(document).ready(function() {
+    $('#fill_meses_sin_intereses').val(0);
+    $('#fill_months_plazo').val(0);
+    
+});
+    console.log($('#fill_meses_sin_intereses').val());
+    $('#fill_interes_mensual').on('input', function(){
+        changed_personal();
+    });
+    $('#fill_meses_sin_intereses').on('input', function(){
+        changed_personal();
+    });
     $(document).on('personalized_plan_changed', function (e, final_price) {
-        var interes_mensual = .013;
+        var interes_mensual = $('#fill_interes_mensual').get_number() / 100;
         var mensualidades_plazo = $('#fill_months_plazo').get_number();
+        var meses_sin_intereses = $('#fill_meses_sin_intereses').get_number();
+        if(meses_sin_intereses > mensualidades_plazo){
+            meses_sin_intereses = mensualidades_plazo;
+            $('#fill_meses_sin_intereses').set_value(meses_sin_intereses);
+        }
         if(!mensualidades_plazo){
             mensualidades_plazo = 1;
         }
+        var meses_a_financiar = mensualidades_plazo - meses_sin_intereses;
         if($('#fill_enganche').data('flag')){
             var per_plazo = $('#per_plazo').get_number();
             var enganche = $('#fill_enganche').get_number();
@@ -18,19 +37,14 @@
                 final_price, 
                 enganche
             );
-            var monto_a_financiar = final_price * per_plazo / 100;
-            var pago_manual = monto_a_financiar / ((1-Math.pow(1+interes_mensual,-mensualidades_plazo))/interes_mensual);
-            var pago_total = pago_manual * mensualidades_plazo;
-            var costo_financiero = pago_total - monto_a_financiar;
-            var per_liquidacion = 100-per_plazo-per_enganche;
-            var monto_nominal = per_liquidacion * final_price / 100;
-            var tasa_efectiva_anualizada = Math.pow(1+interes_mensual, 12) - 1;
-            var plazo_anualizado = mensualidades_plazo / 12;
-            var pago_final = monto_nominal * Math.pow(1 + tasa_efectiva_anualizada, plazo_anualizado);
-            var enganche = final_price * per_enganche / 100;
-            var pago = enganche + pago_total + pago_final;
-            $('#per_enganche').set_value(per_enganche*100);
-            $('#fill_plazo').set_value(per_plazo*pago/100);
+            var pago = enganche/per_enganche;
+            var per_liquidacion = 100-per_plazo-per_enganche*100;
+            $('#per_enganche').set_money(per_enganche*100);
+            $('#fill_total-price-personalized').set_money(pago);
+            $('#fill_plazo').set_money(per_plazo*pago/100);
+            $('#per_liquidacion').set_percent(per_liquidacion);
+            $('#fill_liquidacion').set_money(per_liquidacion*pago/100);
+            $('#fill_mensuality_plazo').set_money($('#fill_plazo').get_number()/mensualidades_plazo);
         }
         else if($('#fill_plazo').data('flag')){
             var per_enganche = $('#per_enganche').get_number();
@@ -61,27 +75,25 @@
             var per_plazo = $('#per_plazo').get_number();
             
             var monto_a_financiar = final_price * per_plazo / 100;
-            var pago_manual = monto_a_financiar / ((1-Math.pow(1+interes_mensual,-mensualidades_plazo))/interes_mensual);
-            var pago_total = pago_manual * mensualidades_plazo;
+            var pago_manual = monto_a_financiar / ((1-Math.pow(1+interes_mensual,-meses_a_financiar))/interes_mensual);
+            var pago_total = pago_manual * meses_a_financiar;
             var costo_financiero = pago_total - monto_a_financiar;
             var per_liquidacion = 100-per_plazo-per_enganche;
 
             var monto_nominal = per_liquidacion * final_price / 100;
             var tasa_efectiva_anualizada = Math.pow(1+interes_mensual, 12) - 1;
-            var plazo_anualizado = mensualidades_plazo / 12;
+            var plazo_anualizado = meses_a_financiar / 12;
             var pago_final = monto_nominal * Math.pow(1 + tasa_efectiva_anualizada, plazo_anualizado);
             var enganche = final_price * per_enganche / 100;
             var pago = enganche + pago_total + pago_final;
             $('#fill_enganche').set_money(per_enganche*pago/100);
             $('#fill_plazo').set_money(per_plazo*pago/100);
-        }
-        
-        
-        $('#per_liquidacion').set_percent(per_liquidacion);
-        $('#fill_liquidacion').set_money(per_liquidacion*pago/100);
-        $('#fill_mensuality_plazo').set_money($('#fill_plazo').get_number()/mensualidades_plazo);
-        $('#fill_total-price-personalized').set_money(pago);
 
+            $('#per_liquidacion').set_percent(per_liquidacion);
+            $('#fill_liquidacion').set_money(per_liquidacion*pago/100);
+            $('#fill_mensuality_plazo').set_money($('#fill_plazo').get_number()/mensualidades_plazo);
+            $('#fill_total-price-personalized').set_money(pago);
+        }
     });
 
     function calculateX(w,y, z, L) {

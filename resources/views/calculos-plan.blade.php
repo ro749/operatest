@@ -34,7 +34,8 @@
                 meses_a_financiar,
                 per_plazo/100, 
                 final_price, 
-                enganche
+                enganche,
+                meses_sin_intereses
             );
             var pago = enganche/per_enganche;
             var per_liquidacion = 100-per_plazo-per_enganche*100;
@@ -78,7 +79,7 @@
                 var pago_manual = monto_a_financiar;
             }
             else{
-                var pago_manual = monto_a_financiar / ((1-Math.pow(1+interes_mensual,-meses_a_financiar))/interes_mensual);
+                var pago_manual = monto_a_financiar / (meses_sin_intereses+(1-Math.pow(1+interes_mensual,-meses_a_financiar))/interes_mensual);
             }
             
             var pago_total = pago_manual * meses_a_financiar;
@@ -101,10 +102,10 @@
         }
     });
 
-    function calculateX(w,y, z, L) {
+    function calculateX(w,y, z, L,n) {
       const value_normalized = L/z;
       const B = Math.pow(1.013,w);
-      const A = y*0.013/(1-Math.pow(1.013,-w))*w;
+      const A = y/(n+(1-Math.pow(1.013,-w))/0.013)*w;
       const a = 1-B;
       const b = A+B-y*B;
       const root = Math.sqrt(b**2+4*a*value_normalized);

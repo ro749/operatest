@@ -9,7 +9,6 @@
     $('#fill_months_plazo').val(0);
     
 });
-    console.log($('#fill_meses_sin_intereses').val());
     $('#fill_interes_mensual').on('input', function(){
         changed_personal();
     });
@@ -18,6 +17,7 @@
     });
     $(document).on('personalized_plan_changed', function (e, final_price) {
         var interes_mensual = $('#fill_interes_mensual').get_number() / 100;
+        console.log(interes_mensual);
         var mensualidades_plazo = $('#fill_months_plazo').get_number();
         var meses_sin_intereses = $('#fill_meses_sin_intereses').get_number();
         if(meses_sin_intereses > mensualidades_plazo){
@@ -39,7 +39,7 @@
             );
             var pago = enganche/per_enganche;
             var per_liquidacion = 100-per_plazo-per_enganche*100;
-            $('#per_enganche').set_money(per_enganche*100);
+            $('#per_enganche').set_value(per_enganche*100);
             $('#fill_total-price-personalized').set_money(pago);
             $('#fill_plazo').set_money(per_plazo*pago/100);
             $('#per_liquidacion').set_percent(per_liquidacion);
@@ -75,7 +75,13 @@
             var per_plazo = $('#per_plazo').get_number();
             
             var monto_a_financiar = final_price * per_plazo / 100;
-            var pago_manual = monto_a_financiar / ((1-Math.pow(1+interes_mensual,-meses_a_financiar))/interes_mensual);
+            if(interes_mensual==0 || meses_a_financiar==0){
+                var pago_manual = monto_a_financiar;
+            }
+            else{
+                var pago_manual = monto_a_financiar / ((1-Math.pow(1+interes_mensual,-meses_a_financiar))/interes_mensual);
+            }
+            
             var pago_total = pago_manual * meses_a_financiar;
             var costo_financiero = pago_total - monto_a_financiar;
             var per_liquidacion = 100-per_plazo-per_enganche;

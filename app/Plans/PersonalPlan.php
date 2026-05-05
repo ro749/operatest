@@ -34,7 +34,7 @@ class PersonalPlan extends BasePersonalPlan{
         array_shift($this->top_lines);
         array_shift($this->lines);
         $form->fields['fill_interes_mensual'] = new Field(type: InputType::PERCENTAGE);
-        $form->fields['fill_meses_sin_intereses'] = new Field(type: InputType::NUMBER);
+        $form->fields['fill_meses_sin_intereses'] = new Field(type: InputType::NUMBER, min: 0);
         $form->fields['per_enganche'] = new Field(type: InputType::PERCENTAGE);
         $form->fields['per_plazo'] = new Field(type: InputType::PERCENTAGE);
         unset($form->fields['fill_enganche'], $form->fields['fill_plazo']);

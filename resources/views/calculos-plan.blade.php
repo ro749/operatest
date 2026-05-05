@@ -17,7 +17,6 @@
     });
     $(document).on('personalized_plan_changed', function (e, final_price) {
         var interes_mensual = $('#fill_interes_mensual').get_number() / 100;
-        console.log(interes_mensual);
         var mensualidades_plazo = $('#fill_months_plazo').get_number();
         var meses_sin_intereses = $('#fill_meses_sin_intereses').get_number();
         if(meses_sin_intereses > mensualidades_plazo){

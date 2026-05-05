@@ -19,8 +19,8 @@
         var interes_mensual = $('#fill_interes_mensual').get_number() / 100;
         var mensualidades_plazo = $('#fill_months_plazo').get_number();
         var meses_sin_intereses = $('#fill_meses_sin_intereses').get_number();
-        if(meses_sin_intereses > mensualidades_plazo){
-            meses_sin_intereses = mensualidades_plazo;
+        if(meses_sin_intereses >= mensualidades_plazo){
+            meses_sin_intereses = mensualidades_plazo-1;
             $('#fill_meses_sin_intereses').set_value(meses_sin_intereses);
         }
         if(!mensualidades_plazo){
@@ -31,7 +31,7 @@
             var per_plazo = $('#per_plazo').get_number();
             var enganche = $('#fill_enganche').get_number();
             var per_enganche = calculateX(
-                mensualidades_plazo,
+                meses_a_financiar,
                 per_plazo/100, 
                 final_price, 
                 enganche

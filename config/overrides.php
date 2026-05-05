@@ -25,6 +25,7 @@ return [
         'header' => 'header',
         'post-data' => 'post-data',
         'simple-login' => 'simple-login',
+        'unavailable' => 'unavailable',
     ],
     'image_map_pro' => App\ImageMapPro\ImageMapPro::class,
 ];

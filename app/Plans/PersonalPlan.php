@@ -33,21 +33,22 @@ class PersonalPlan extends BasePersonalPlan{
         parent::__construct($form,$id, $title, $discount, $top_lines, $lines, $bottom_lines, $price_tag, $discount_tag, $total_tag, $ppm_tag, $total_on_top, $ppm, $show_base_price);
         array_shift($this->top_lines);
         array_shift($this->lines);
+        $form->fields['fill_interes_mensual'] = new Field(type: InputType::PERCENTAGE);
+        $form->fields['fill_meses_sin_intereses'] = new Field(type: InputType::NUMBER);
+        $form->fields['per_enganche'] = new Field(type: InputType::PERCENTAGE);
+        $form->fields['per_plazo'] = new Field(type: InputType::PERCENTAGE);
+        unset($form->fields['fill_enganche'], $form->fields['fill_plazo']);
         $this->lines[] = new PlanLine(
             text: 'Interes Mensual',
             id: 'interes_mensual',
             classes: ['interes_mensual'],
-            amount: new Field(
-                type: InputType::PERCENTAGE,
-            ),
+            amount: $form->fields['fill_interes_mensual'],
         );
         $this->lines[] = new PlanLine(
             text: 'Meses sin intereses',
             id: 'meses_sin_intereses',
             classes: ['meses_sin_intereses'],
-            amount: new Field(
-                type: InputType::NUMBER,
-            ),
+            amount: $form->fields['fill_meses_sin_intereses'],
         );
     }
 }

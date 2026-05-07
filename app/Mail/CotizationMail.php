@@ -10,6 +10,7 @@ use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 use App\Models\Unit;
 class CotizationMail extends Mailable
 {
@@ -41,7 +42,7 @@ class CotizationMail extends Mailable
      */
     public function content(): Content
     {
-        $unit = Unit::where('id', $this->unit)->first();
+        $unit = Unit::instance()->where('id', $this->unit)->first();
         return new Content(
             view: 'listing-utils::Sender.cotization-mail',
             with: [
@@ -49,7 +50,7 @@ class CotizationMail extends Mailable
                 'url' => $this->link,
                 'unit_tag' => 'Unidad',
                 'buttom_tag' => 'Ver Detalles',
-                'title' => 'Soho',
+                'title' => 'Opera',
                 'image'=>image('Modelos/Planta/'.$unit->tipo.'.jpg'),
                 'logo' => image('opera.png')
             ]

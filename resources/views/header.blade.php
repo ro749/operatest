@@ -20,16 +20,17 @@
                                     <div class="de-flex-col header-col-mid">
                                         <ul id="mainmenu">
                                         
-                                             <li><a class="menu-item" href="#">Asesor</a>{{ $asesor }}</li>
-                                            <li><a class="menu-item"  href="#">Cliente</a>{{ $client }}</li>
+                                             <li><a class="menu-item" href="#" style="color: #bb9269 !important;">Asesor</a>{{ $asesor }}</li>
+                                            <li><a class="menu-item"  href="#" style="color: #bb9269 !important;">Cliente</a>{{ $client }}</li>
                                             
                                         </ul>
                                     </div>
                                 </div>
 
                                 <div class="de-flex-col">
+                                    @if(!empty($menu))
                                     <a class="btn-main fx-slide w-100" href="{{ route('client-login') }}"><span>Cambiar Cliente</span></a>
-
+                                    @endif
                                     <div class="menu_side_area">
                                         <span id="menu-btn"></span>
                                     </div>
@@ -56,9 +57,10 @@
                         </div>
 
                         <div class="col-lg-4">
-                          
+                            @if(!empty($menu))
                             <a class="btn-main btn-line bg-blur fx-slide" href="{{ route('disponibilidad') }}"><span>Disponibilidad</span></a>&nbsp;
                             <a class="btn-main btn-line bg-blur fx-slide" href="{{ route('torre') }}"><span>Listado</span></a>
+                            @endif
                         </div>
                     </div>
                 </div>
@@ -67,31 +69,14 @@
                 <div class="swiper">
                   <!-- Additional required wrapper -->
                   <div class="swiper-wrapper">
-                    <!-- Slides -->
+                    @for($i = 1; $i <= 9; $i++)
                     <div class="swiper-slide">
-                        <div class="swiper-inner" data-bgimage="url({{ image('s01.jpg') }})">
+                        <div class="swiper-inner" data-bgimage="url({{ image('/Carrusel/0'.$i.'.jpg') }})">
                             <div class="sw-overlay op-4"></div>
                         </div>
                     </div>
-
-                    <!-- Slides -->
-                    <div class="swiper-slide">
-                        <div class="swiper-inner" data-bgimage="url({{ image('s02.jpg') }})">
-                            <div class="sw-overlay op-4"></div>
-                        </div>
-                    </div>
-
-                      <div class="swiper-slide">
-                        <div class="swiper-inner" data-bgimage="url({{ image('s03.jpg') }})">
-                            <div class="sw-overlay op-4"></div>
-                        </div>
-                    </div>
-
-                      <div class="swiper-slide">
-                        <div class="swiper-inner" data-bgimage="url({{ image('s04.jpg') }})">
-                            <div class="sw-overlay op-4"></div>
-                        </div>
-                    </div>
+                    @endfor
+                    
                       
                   </div>
                   

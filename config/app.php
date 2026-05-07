@@ -13,7 +13,8 @@ return [
     |
     */
 
-    'name' => env('APP_NAME', 'Laravel'),
+    'name' => 'Opera',
+    'icon' => 'https://propstudios.mx/img/opera/Opera_Icono_Dorado.png',
 
     /*
     |--------------------------------------------------------------------------

@@ -33,7 +33,7 @@ class CotizationMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Cotization Mail',
+            subject: 'Cotización Ópera',
         );
     }
 
@@ -50,7 +50,7 @@ class CotizationMail extends Mailable
                 'url' => $this->link,
                 'unit_tag' => 'Unidad',
                 'buttom_tag' => 'Ver Detalles',
-                'title' => 'Opera',
+                'title' => 'Ópera',
                 'image'=>image('Modelos/Planta/'.$unit->tipo.'.jpg'),
                 'logo' => image('opera.png')
             ]

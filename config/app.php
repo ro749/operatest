@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'Opera',
+    'name' => 'Ópera',
     'icon' => 'https://propstudios.mx/img/opera/Opera_Icono_Dorado.png',
 
     /*

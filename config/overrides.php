@@ -23,6 +23,7 @@ return [
         'disponibilidad-data' => 'disponibilidad-data',
         'footer' => 'footer',
         'header' => 'header',
+        'mail-body' => 'mail-body',
         'post-data' => 'post-data',
         'simple-login' => 'simple-login',
         'unavailable' => 'unavailable',
